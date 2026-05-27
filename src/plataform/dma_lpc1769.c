@@ -1,0 +1,15 @@
+/*
+ * dma_lpc1769.c
+ *
+ *  Created on: 27 may 2026
+ *      Author: joaquin
+ */
+
+#include "plataform.h"
+#include "lpc17xx_gpdma.h"
+
+static GPDMA_LLI_T dmaLli;
+
+void configDma(void) {
+
+}
