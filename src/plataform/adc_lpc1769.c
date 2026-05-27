@@ -17,7 +17,6 @@ void configAdc(void) {
 	 */
 	ADC_Init(10);
 	ADC_PinConfig(ADC_CHANNEL_0);
-	ADC_StartCmd(ADC_START_CONTINUOUS);
-	ADC_BurstEnable();
+	ADC_StartCmd(ADC_START_ON_MAT01); //TODO: Ver como configuramos con TIMER que necesitamos usarlo
 	ADC_ChannelEnable(ADC_CHANNEL_0);
 }

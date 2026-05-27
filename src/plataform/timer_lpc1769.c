@@ -11,3 +11,5 @@
 void configTimer(void) {
 
 }
+
+//TODO: Configurar el MAT0.1 para el adc cada 100ms

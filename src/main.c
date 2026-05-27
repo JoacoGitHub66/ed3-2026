@@ -17,6 +17,8 @@
 #include <cr_section_macros.h>
 #include "plataform/plataform.h"
 
+//TODO: ¿Es factible usar switch-case?
+
 int main(void) {
 
 	configAdc();

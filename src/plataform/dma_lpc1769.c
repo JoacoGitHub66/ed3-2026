@@ -8,8 +8,8 @@
 #include "lpc17xx_gpdma.h"
 
 static GPDMA_LLI_T dmaLli;
-#define cant_transf 60 //Vamos a tomar 60 muestras como maximo
-static volatile uint32_t muestrasADC[60];
+#define cant_transf 10 //Vamos a tomar 10 muestras como maximo. Para un adc a 10Hz -> 1 m cada 100ms -> 10m x 100ms = 1 seg,
+static volatile uint32_t muestrasADC[10];
 
 void configDma(void) {
 	GPDMA_Init();
@@ -41,6 +41,7 @@ void configDma(void) {
 	GPDMA_ChannelStart(GPDMA_CH_0);
 }
 
+//Cuando realiza todas las transferencias (10) DMA interrumpe
 void DMA_IRQHandler(void) {
 	GPDMA_ClearIntPending(GPDMA_CLR_INTTC, GPDMA_CH_0);
 	//TODO: Completar funcion
