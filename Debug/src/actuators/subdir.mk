@@ -4,13 +4,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../src/actuators/fan.c 
+../src/actuators/fan.c \
+../src/actuators/lamp.c 
 
 C_DEPS += \
-./src/actuators/fan.d 
+./src/actuators/fan.d \
+./src/actuators/lamp.d 
 
 OBJS += \
-./src/actuators/fan.o 
+./src/actuators/fan.o \
+./src/actuators/lamp.o 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -25,7 +28,7 @@ src/actuators/%.o: ../src/actuators/%.c src/actuators/subdir.mk
 clean: clean-src-2f-actuators
 
 clean-src-2f-actuators:
-	-$(RM) ./src/actuators/fan.d ./src/actuators/fan.o
+	-$(RM) ./src/actuators/fan.d ./src/actuators/fan.o ./src/actuators/lamp.d ./src/actuators/lamp.o
 
 .PHONY: clean-src-2f-actuators
 
