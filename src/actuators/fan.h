@@ -8,6 +8,11 @@
 #ifndef ACTUATORS_FAN_H_
 #define ACTUATORS_FAN_H_
 
+void startFan();
 
+void stopFan();
+
+void configPinFan();
 
 #endif /* ACTUATORS_FAN_H_ */
+
