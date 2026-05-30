@@ -28,7 +28,7 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := control_termico_automatico
+BUILD_ARTIFACT_NAME := ed3-2026
 BUILD_ARTIFACT_EXTENSION := axf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
@@ -40,24 +40,24 @@ all:
 	+@$(MAKE) --no-print-directory main-build && $(MAKE) --no-print-directory post-build
 
 # Main-build Target
-main-build: control_termico_automatico.axf
+main-build: ed3-2026.axf
 
 # Tool invocations
-control_termico_automatico.axf: $(OBJS) $(USER_OBJS) makefile $(OPTIONAL_TOOL_DEPS)
+ed3-2026.axf: $(OBJS) $(USER_OBJS) makefile $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MCU Linker'
-	arm-none-eabi-gcc -nostdlib -L"/home/joaquin/Documents/MCUXpresso_25.6.136/workspace/CMSISv2p00_LPC17xx/Debug" -Xlinker -Map="control_termico_automatico.map" -Xlinker --cref -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T control_termico_automatico_Debug.ld -o "control_termico_automatico.axf" $(OBJS) $(USER_OBJS) $(LIBS) -lCMSISv2p00_LPC17xx
+	arm-none-eabi-gcc -nostdlib -L"/home/joaquin/Documents/MCUXpresso_25.6.136/workspace/CMSISv2p00_LPC17xx/Debug" -Xlinker -Map="ed3-2026.map" -Xlinker --cref -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T ed3-2026_Debug.ld -o "ed3-2026.axf" $(OBJS) $(USER_OBJS) $(LIBS) -lCMSISv2p00_LPC17xx
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) control_termico_automatico.axf
+	-$(RM) ed3-2026.axf
 	-@echo ' '
 
 post-build:
 	-@echo 'Performing post-build steps'
-	-arm-none-eabi-size "control_termico_automatico.axf"; # arm-none-eabi-objcopy -v -O binary "control_termico_automatico.axf" "control_termico_automatico.bin" ; # checksum -p LPC1769 -d "control_termico_automatico.bin";
+	-arm-none-eabi-size "ed3-2026.axf"; # arm-none-eabi-objcopy -v -O binary "ed3-2026.axf" "ed3-2026.bin" ; # checksum -p LPC1769 -d "ed3-2026.bin";
 	-@echo ' '
 
 .PHONY: all clean dependents main-build post-build
