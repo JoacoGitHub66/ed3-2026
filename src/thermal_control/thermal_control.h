@@ -5,9 +5,12 @@
  *      Author: joaquin
  */
 
+#include "LPC17xx.h"
+#include <cr_section_macros.h>
+
 #ifndef THERMAL_CONTROL_THERMAL_CONTROL_H_
 #define THERMAL_CONTROL_THERMAL_CONTROL_H_
 
-
+void separarDatosBuffer(void);
 
 #endif /* THERMAL_CONTROL_THERMAL_CONTROL_H_ */

@@ -26,7 +26,10 @@ int main(void) {
 	configUart();
 
     while(1) {
-
+    	if(getDmaTermino() == 1) {
+    		//Calculamos promedio
+    		//TODO: decidir donde calculamos el promedio
+    	}
     }
     return 0 ;
 }
