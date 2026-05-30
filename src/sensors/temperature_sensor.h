@@ -11,3 +11,6 @@
 
 
 #endif /* SENSORS_TEMPERATURE_SENSOR_H_ */
+
+
+//Todo: borrar este archivo y la carpeta donde está
