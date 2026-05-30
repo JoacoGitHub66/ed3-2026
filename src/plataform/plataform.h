@@ -17,6 +17,7 @@ void configDac(void);
 
 void configDma(void);
 volatile uint32_t *getAdcBuffer(void);
+volatile uint8_t getDmaTermino(void);
 
 void configTimer(void);
 

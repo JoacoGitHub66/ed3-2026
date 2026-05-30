@@ -1,3 +1,0 @@
-../src/plataform/dma_lpc1769.c:14:6:configDma	56	static
-../src/plataform/dma_lpc1769.c:45:6:DMA_IRQHandler	8	static
-../src/plataform/dma_lpc1769.c:53:20:getAdcBuffer	4	static
