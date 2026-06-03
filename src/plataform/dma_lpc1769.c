@@ -57,6 +57,7 @@ volatile uint32_t *getAdcBuffer(void) {
 
 
 volatile uint8_t getDmaTermino(void) {
+	//TODO:
 	return dmaTermino;
 }
 
