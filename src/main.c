@@ -12,7 +12,7 @@
 
 #ifdef __USE_CMSIS
 #include "LPC17xx.h"
-#include "core.h"
+#include "core/core.h"
 #endif
 
 #include <cr_section_macros.h>
