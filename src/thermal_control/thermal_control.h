@@ -12,5 +12,8 @@
 #define THERMAL_CONTROL_THERMAL_CONTROL_H_
 
 void separarDatosBuffer(void);
+volatile uint32_t *getBuffer1(void);
+volatile uint32_t *getBuffer2(void);
+volatile uint32_t *getBuffer3(void);
 
 #endif /* THERMAL_CONTROL_THERMAL_CONTROL_H_ */

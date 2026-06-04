@@ -6,6 +6,8 @@
  */
 
 #include "core.h"
+#include "lpc17xx_dac.h"
+#include "thermal_control.h"
 
 /*
  * @Brief: Calcula la temperatura de un sensor recibiendo como parametro la dir de memoria de un buffer
@@ -20,3 +22,30 @@ volatile uint32_t calcularPromedioSensor(uint32_t* bufferSensor){
 	}
 	return val/10;
 }
+
+/*
+ * @Brief: Calcula el promedio de temperatura registrado por los 3 sensores y envia dicho valor al DAC
+ */
+void promedioDac(void){
+
+	volatile uint32_t val = 0;
+	val += calcularPromedioSensor(getBuffer1());
+	val += calcularPromedioSensor(getBuffer2());
+	val += calcularPromedioSensor(getBuffer3());
+	val = val/3;
+
+	DAC_UpdateValue(val >> 2);
+}
+
+volatile uint32_t getPromedioBuffer1(void){
+	return calcularPromedioSensor(getBuffer1());
+}
+
+volatile uint32_t getPromedioBuffer2(void){
+	return calcularPromedioSensor(getBuffer2());
+}
+
+volatile uint32_t getPromedioBuffer3(void){
+	return calcularPromedioSensor(getBuffer3());
+}
+

@@ -13,6 +13,12 @@
  * */
 volatile uint32_t calcularPromedioSensor(uint32_t*);
 
+void promedioDac(void);
 
+volatile uint32_t getPromedioBuffer1(void);
+
+volatile uint32_t getPromedioBuffer2(void);
+
+volatile uint32_t getPromedioBuffer3(void);
 
 #endif /* CORE_CORE_H_ */

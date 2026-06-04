@@ -36,5 +36,14 @@ void separarDatosBuffer(void) {
 	}
 }
 
+volatile uint32_t *getBuffer1(void){
+	return bufferSensor1;
+}
 
+volatile uint32_t *getBuffer2(void){
+	return bufferSensor2;
+}
 
+volatile uint32_t *getBuffer3(void){
+	return bufferSensor3;
+}

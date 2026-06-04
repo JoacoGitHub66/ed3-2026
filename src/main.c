@@ -12,6 +12,7 @@
 
 #ifdef __USE_CMSIS
 #include "LPC17xx.h"
+#include "core.h"
 #endif
 
 #include <cr_section_macros.h>
@@ -27,8 +28,12 @@ int main(void) {
 
     while(1) {
     	if(getDmaTermino() == 1) {
-    		//Calculamos promedio
+    		//Calculamos promedio y enviamos por el dac
+    		promedioDac();
     		//TODO: decidir donde calculamos el promedio
+
+
+
     	}
     }
     return 0 ;
