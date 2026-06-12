@@ -8,8 +8,6 @@
 #include "plataform.h"
 #include "lpc17xx_uart.h"
 
-#warning "Estoy incluyendo lpc17xx_uart.h"
-
 #include "../actuators/lamp.h"
 #include "../actuators/fan.h"
 

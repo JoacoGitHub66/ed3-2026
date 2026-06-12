@@ -1,0 +1,3 @@
+/home/joaquin/Documents/MCUXpresso_25.6.136/workspace/CMSISv2p00_LPC17xx/inc/core_cm3.h:928:22:NVIC_EnableIRQ	16	static
+../src/plataform/uart_lpc1769.c:14:6:configUart	24	static
+../src/plataform/uart_lpc1769.c:44:6:UART3_IRQHandler	16	static
