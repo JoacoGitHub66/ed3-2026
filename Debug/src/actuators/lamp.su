@@ -1,0 +1,3 @@
+../src/actuators/lamp.c:14:6:stopLamp	8	static
+../src/actuators/lamp.c:21:6:startLamp	8	static
+../src/actuators/lamp.c:28:6:configPinLamp	16	static

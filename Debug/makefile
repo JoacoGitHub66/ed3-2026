@@ -9,8 +9,8 @@ RM := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include src/thermal_control/subdir.mk
--include src/sensors/subdir.mk
 -include src/plataform/subdir.mk
+-include src/core/subdir.mk
 -include src/communication/subdir.mk
 -include src/actuators/subdir.mk
 -include src/subdir.mk

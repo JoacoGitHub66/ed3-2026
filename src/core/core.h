@@ -5,8 +5,12 @@
  *      Author: matic
  */
 
+#include "../thermal_control/thermal_control.h"
+
 #ifndef CORE_CORE_H_
 #define CORE_CORE_H_
+
+
 
 /*
  *

@@ -1,0 +1,4 @@
+../src/plataform/dma_lpc1769.c:16:6:configDma	56	static
+../src/plataform/dma_lpc1769.c:47:6:DMA_IRQHandler	8	static
+../src/plataform/dma_lpc1769.c:54:20:getAdcBuffer	4	static
+../src/plataform/dma_lpc1769.c:59:18:getDmaTermino	4	static
