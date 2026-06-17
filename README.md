@@ -1,24 +1,26 @@
-# [Nombre del Proyecto / Sistema]
-> **Asignatura:** Electrónica Digital [II / III] - Universidad Nacional de Córdoba
-> **Integrantes:** > * Nombre Apellido
-> * Nombre Apellido
-> **Profesor:** [Nombre del Profesor]
+# [SISTEMA DE CONTROL TERMIC]
+> **Asignatura:** Electrónica Digital [III] - Universidad Nacional de Córdoba
+> **Integrantes:** > * Almada Joaquin
+> * Sacchi Matias Leonel
+> **Profesor:** [Blasco Marcos Javier]
 
 ---
 
-## 🚀 1. Descripción General del Proyecto (Común a DII y DIII)
-Expliquen, en un máximo de dos párrafos, **qué hace el sistema, qué problema resuelve y a quién va dirigido**. Sean claros, concisos y directos.
+## 🚀 1. Descripción General del Proyecto
+Nuestro proyecto consiste en un sistema de control termico que, dada una habitacion cerrada el sistema debera mantener la temeparatura en un rango 
+de entre 20 y 30 °C mediante el uso de sensores y una lampara, adicionalmente cuenta con un ventilador para alterar el flujo de aire en el interior
+y estudiar el cambio de te temperatura con/sin la influencia del mismo
 
 ### 🎯 Alcances del Proyecto (¿Qué hace y qué NO hace el sistema?)
 Delimiten claramente los objetivos alcanzados para la entrega final:
-* **El sistema SÍ es capaz de:** [Ej: Medir temperatura y presión en tiempo real, activar un cooler si se supera el umbral y transmitir los datos por UART cada 1 segundo].
-* **El sistema NO incluye (Fuera de alcance):** [Ej: Almacenamiento local de datos (Data Logging) en tarjeta SD ni conectividad inalámbrica Wi-Fi/Bluetooth].
+* **El sistema SÍ es capaz de:** [Medir temperatura, activar un cooler y transmitir los datos por UART cada 1 segundo].
+* **El sistema NO incluye (Fuera de alcance):** [Encender el ventilador y lampara de manera automatica, guardar registros de los sensores en pc].
 
 ### ⏩ Posibles Etapas Siguientes (Líneas Futuras)
 Planteen cómo escalaría este desarrollo en una versión 2.0 o en un ámbito profesional:
-* [Ej: Migrar el circuito de protoboard a un circuito impreso (PCB) diseñado bajo normas de compatibilidad electromagnética (EMC)].
-* [Ej: Implementar modos de bajo consumo (Sleep) administrados por hardware para permitir el uso de baterías].
-* [Ej: Diseñar una interfaz gráfica (GUI) en Python o una app móvil para la visualización remota de las variables].
+* [Migrar el circuito a una plataforma mas economica (ESP32) ].
+* [Implementar modos de bajo consumo (Sleep) administrados por hardware para permitir el uso de baterías].
+* [Diseñar una interfaz gráfica (GUI) en HTML5 o una app móvil para la visualización remota de las variables].
 
 ---
 
@@ -39,27 +41,18 @@ Planteen cómo escalaría este desarrollo en una versión 2.0 o en un ámbito pr
 ## ⚡ 3. Especificaciones Eléctricas, Alimentación y Entorno (Específico por Asignatura)
 
 ### 🔌 Parámetros de Alimentación y Consumo (Común a ambas materias)
-* **Tensión de operación del sistema:** [Ej: 5V / 3.3V]
-* **Método de alimentación:** [Ej: Fuente externa de 12V con regulador lineal LM7805 / Alimentación por USB]
-* **Consumo estimado o medido:** * En modo activo (máxima carga, relés/motores encendidos): `XX mA`
-  * En modo bajo consumo (si aplica): `XX uA`
+* **Tensión de operación del sistema:** [5V / 12V]
+* **Método de alimentación:** [Fuente externa de 12V con regulador lineal LM7805 / Alimentación por USB]
+* **Consumo estimado o medido:** * En modo activo: `~4,62 A`
 
-### 📌 [OPCIÓN A: Solo para alumnos de Electrónica Digital II (PIC16F887)]
-* **Herramientas de Software:** MPLAB X IDE [vX.XX] y compilador XC8 [vX.XX].
-* **Hardware de Programación/Depuración:** [Ej: PICkit 3, PICkit 4].
-* **Configuración de Bits (Fuses Críticos):**
-  * *Oscilador:* [Ej: HS (Cristal externo de 20MHz) / INTRC (Interno 4MHz)]
-  * *Watchdog Timer (WDT):* [Ej: ON / OFF]
-  * *Master Clear (MCLRE):* [Ej: ON (Pin externo) / OFF (Digital IO)]
-* **Periféricos Internos Utilizados:** [Ej: Timer0, ADC, EUSART, PWM].
-* **Gestión de Interrupciones:** Al contar con un único vector de interrupción, expliquen la prioridad por software (*polling*) en la ISR: ¿Qué bandera (`flag`) evalúan primero y por qué?
 
-### 📌 [OPCIÓN B: Solo para alumnos de Electrónica Digital III (Cortex-M / ARM)]
+### 📌 [Cortex-M / ARM]
 * **IDE y SDK:** [Ej: MCUXpresso IDE v11.8 con LPCOpen v2.10 / STM32CubeIDE v1.14 con HAL v1.28].
 * **Microcontrolador Principal:** [Ej: NXP LPC1769 / STM32F411].
 * **Bibliotecas de Terceros y Versiones:** [Ej: FreeRTOS v10.5.1 / Biblioteca LCD I2C v1.2].
 * **Periféricos Avanzados Utilizados:** [Ej: NVIC, DMA, SysTick, DAC].
-* **Estrategia de Concurrencia:** Expliquen la arquitectura elegida: [Ej: Bare-metal con máquina de estados cooperativa / RTOS (FreeRTOS) detallando las tareas creadas y sus prioridades].
+* **Estrategia de Concurrencia:** Expliquen la arquitectura elegida: [RTOS: EL programa ejecuta secuencialmente todo el proceso,
+* los actuadores se ejecutan por software pero de activacion manual (requiere interaccion del usuario)].
 
 ---
 
