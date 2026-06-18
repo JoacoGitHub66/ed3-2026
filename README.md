@@ -1,87 +1,337 @@
-# [SISTEMA DE CONTROL TERMIC]
-> **Asignatura:** Electrónica Digital [III] - Universidad Nacional de Córdoba
-> **Integrantes:** > * Almada Joaquin
-> * Sacchi Matias Leonel
-> **Profesor:** [Blasco Marcos Javier]
+# [SISTEMA DE CONTROL TÉRMICO]
+
+> **Asignatura:** Electrónica Digital III - Universidad Nacional de Córdoba
+> **Integrantes:**
+>
+> * Joaquín Almada
+> * Matías Leonel Sacchi
+>   **Profesor:** Marcos Javier Blasco
 
 ---
 
-## 🚀 1. Descripción General del Proyecto
-Nuestro proyecto consiste en un sistema de control termico que, dada una habitacion cerrada el sistema debera mantener la temeparatura en un rango 
-de entre 20 y 30 °C mediante el uso de sensores y una lampara, adicionalmente cuenta con un ventilador para alterar el flujo de aire en el interior
-y estudiar el cambio de te temperatura con/sin la influencia del mismo
+# 🚀 1. Descripción General del Proyecto
 
-### 🎯 Alcances del Proyecto (¿Qué hace y qué NO hace el sistema?)
-Delimiten claramente los objetivos alcanzados para la entrega final:
-* **El sistema SÍ es capaz de:** [Medir temperatura, activar un cooler y transmitir los datos por UART cada 1 segundo].
-* **El sistema NO incluye (Fuera de alcance):** [Encender el ventilador y lampara de manera automatica, guardar registros de los sensores en pc].
+El presente proyecto consiste en el desarrollo de un sistema de control térmico automático basado en un microcontrolador LPC1769. El objetivo es monitorear la temperatura de una cámara cerrada mediante tres sensores de temperatura LM335 y actuar sobre distintos elementos de control para mantener la temperatura dentro de un rango establecido.
 
-### ⏩ Posibles Etapas Siguientes (Líneas Futuras)
-Planteen cómo escalaría este desarrollo en una versión 2.0 o en un ámbito profesional:
-* [Migrar el circuito a una plataforma mas economica (ESP32) ].
-* [Implementar modos de bajo consumo (Sleep) administrados por hardware para permitir el uso de baterías].
-* [Diseñar una interfaz gráfica (GUI) en HTML5 o una app móvil para la visualización remota de las variables].
+El sistema realiza la adquisición periódica de datos de temperatura mediante el conversor analógico-digital (ADC), procesa las mediciones y genera una temperatura promedio representativa del ambiente. Asimismo, dispone de una interfaz UART para supervisión y control manual de los actuadores.
+
+Para modificar las condiciones térmicas de la cámara se emplean una lámpara incandescente, utilizada como fuente de calor, y un ventilador que permite alterar la circulación del aire y acelerar los intercambios térmicos dentro del recinto.
+
+Los valores medidos por los sensores son enviados periódicamente a una computadora mediante comunicación serie UART para facilitar la visualización y el monitoreo del sistema.
 
 ---
 
-## 📐 2. Arquitectura del Sistema: Hardware y Software (Común)
+## 🎯 Alcances del Proyecto
 
-### 🔌 Hardware & Interconexión
-* **Diagrama de Bloques:** [Insertar imagen o link al diagrama de bloques del hardware]
-* **Esquemático del Circuito:** *[Inserte aquí la captura de imagen/render del esquemático completo desarrollado en KiCad/Altium]*
-  `![Esquemático Completo](hardware/esquematico.png)`
-* **Descripción del Circuito y Consideraciones de Diseño:** Breve explicación de las etapas (ej: acoplamiento de señales, protecciones inductivas, filtrado, etc.).
+### El sistema SÍ es capaz de:
 
-### 💻 Arquitectura de Software (Firmware)
-* **Diagrama de Flujo o Máquina de Estados:** *[Inserte aquí la imagen del diagrama que explique el lazo principal o el comportamiento del sistema]*
-  `![Diagrama de Flujo / Máquina de Estados](docs/diagrama_software.png)`
+* Adquirir señales analógicas provenientes de tres sensores LM335.
+* Convertir las mediciones mediante el ADC interno del LPC1769.
+* Utilizar DMA para almacenar automáticamente las muestras adquiridas.
+* Calcular el promedio de temperatura de los tres sensores.
+* Generar una salida analógica mediante DAC proporcional a la temperatura promedio medida.
+* Controlar una lámpara y un ventilador mediante salidas digitales.
+* Comunicar datos de temperatura mediante UART.
+* Permitir el accionamiento manual de los actuadores a través de comandos UART.
+* Operar de forma autónoma sin necesidad de una computadora una vez programado.
 
----
+### El sistema NO incluye (fuera de alcance)
 
-## ⚡ 3. Especificaciones Eléctricas, Alimentación y Entorno (Específico por Asignatura)
-
-### 🔌 Parámetros de Alimentación y Consumo (Común a ambas materias)
-* **Tensión de operación del sistema:** [5V / 12V]
-* **Método de alimentación:** [Fuente externa de 12V con regulador lineal LM7805 / Alimentación por USB]
-* **Consumo estimado o medido:** * En modo activo: `~4,62 A`
-
-
-### 📌 [Cortex-M / ARM]
-* **IDE y SDK:** [Ej: MCUXpresso IDE v11.8 con LPCOpen v2.10 / STM32CubeIDE v1.14 con HAL v1.28].
-* **Microcontrolador Principal:** [Ej: NXP LPC1769 / STM32F411].
-* **Bibliotecas de Terceros y Versiones:** [Ej: FreeRTOS v10.5.1 / Biblioteca LCD I2C v1.2].
-* **Periféricos Avanzados Utilizados:** [Ej: NVIC, DMA, SysTick, DAC].
-* **Estrategia de Concurrencia:** Expliquen la arquitectura elegida: [RTOS: EL programa ejecuta secuencialmente todo el proceso,
-* los actuadores se ejecutan por software pero de activacion manual (requiere interaccion del usuario)].
+* Registro permanente de datos en memoria no volátil.
+* Comunicación inalámbrica (WiFi, Bluetooth o LoRa).
+* Interfaz gráfica dedicada.
+* Control PID o estrategias avanzadas de regulación.
+* Supervisión remota mediante Internet.
+* Almacenamiento histórico de mediciones.
 
 ---
 
-## 🔄 4. Proceso de Integración y Desarrollo (Común)
-Describan cronológicamente cómo fueron sumando y testeando las diferentes partes del proyecto (enfoque modular de ingeniería).
+## ⏩ Posibles Etapas Futuras
 
-* **Etapa 1 (Validación inicial):** [Ej: Configuración del oscilador/reloj y parpadeo de LED de estado].
-* **Etapa 2 (Adquisición/Comunicación):** [Ej: Implementación del ADC y envío de tramas crudas por UART].
-* **Etapa 3 (Integración lógica):** [Ej: Procesamiento de datos, lógica de control o montado sobre el RTOS].
-* **Etapa 4 (Sistema Completo):** [Ej: Acople de actuadores finales, calibración y pruebas de estrés].
+Como continuación natural del proyecto se plantean las siguientes mejoras:
 
----
-
-## 📊 5. Ensayos, Pruebas y Resultados (Común)
-Demuestren con datos empíricos que el sistema funciona correctamente. **Es obligatorio incluir registro visual**.
-
-* **Pruebas Funcionales Realizadas:** Detallen los ensayos (Ej: "Se inyectó una señal controlada para medir la precisión del ADC...").
-* **Evidencia Fotográfica y Gráficos:** * *Capturas de instrumental:* [Insertar capturas de Osciloscopio, Analizador Lógico o Terminal Serie]
-  * *Foto del Prototipo Real:* [Insertar foto del hardware final cableado/armado en funcionamiento]
+* Implementar un control automático completo de temperatura con histéresis.
+* Incorporar algoritmos de control PID para mejorar la estabilidad térmica.
+* Migrar el sistema a una plataforma con conectividad integrada como ESP32.
+* Agregar almacenamiento de datos en tarjeta SD.
+* Incorporar una pantalla LCD para visualización local.
+* Implementar comunicación WiFi para monitoreo remoto.
+* Desarrollar una aplicación móvil o interfaz web para supervisión en tiempo real.
+* Incorporar modos de bajo consumo para funcionamiento mediante baterías.
 
 ---
 
-## 📂 6. Estructura del Repositorio (Común)
-El repositorio debe mantener obligatoriamente la siguiente estructura limpia (¡Recuerden configurar correctamente el `.gitignore` para no subir carpetas temporales como `Debug/`, `Release/` o archivos `.p1` / `.d`!).
+# 📐 2. Arquitectura del Sistema
+
+## 🔌 Hardware e Interconexión
+
+### Componentes principales
+
+* Microcontrolador NXP LPC1769 (ARM Cortex-M3).
+* Tres sensores de temperatura LM335.
+* Lámpara utilizada como elemento calefactor.
+* Ventilador para circulación de aire.
+* Conversor DAC interno del microcontrolador.
+* Interfaz UART para monitoreo y control.
+* Fuente de alimentación externa.
+
+### Funcionamiento general
+
+Los sensores LM335 generan una tensión proporcional a la temperatura absoluta del ambiente.
+
+Las señales analógicas son adquiridas por el ADC del LPC1769. El DMA transfiere automáticamente las muestras a memoria sin intervención del procesador, reduciendo la carga de CPU.
+
+Una vez obtenidas las muestras, el firmware calcula la temperatura promedio de los tres sensores y actualiza una salida analógica mediante el DAC.
+
+Los valores medidos son transmitidos mediante UART hacia una terminal serie en la computadora.
+
+Los actuadores pueden accionarse mediante comandos enviados por UART:
+
+| Comando | Acción              |
+| ------- | ------------------- |
+| L       | Encender lámpara    |
+| l       | Apagar lámpara      |
+| F       | Encender ventilador |
+| f       | Apagar ventilador   |
+
+### Diagrama de bloques
+
+```
+        +----------------+
+        |   LM335 #1     |
+        +--------+-------+
+                 |
+        +--------v-------+
+        |   LM335 #2     |
+        +--------+-------+
+                 |
+        +--------v-------+
+        |   LM335 #3     |
+        +--------+-------+
+                 |
+                 v
+          +-------------+
+          | ADC + DMA   |
+          +------+------+ 
+                 |
+                 v
+          +-------------+
+          | LPC1769     |
+          +------+------+ 
+                 |
+        +--------+--------+
+        |                 |
+        v                 v
+     UART              DAC
+        |                 |
+        v                 v
+       PC          Salida Analógica
+
+        |
+        +--------------------+
+                             |
+                 +-----------+-----------+
+                 |                       |
+                 v                       v
+             Lámpara              Ventilador
+```
+
+---
+
+## 💻 Arquitectura de Software
+
+El firmware se encuentra organizado en módulos independientes:
+
+### Plataforma
+
+Implementación y configuración de periféricos:
+
+* ADC
+* DMA
+* DAC
+* Timer
+* UART
+
+### Núcleo del sistema
+
+Procesamiento de datos:
+
+* Cálculo de promedios
+* Conversión ADC → Temperatura
+* Gestión de buffers DMA
+
+### Actuadores
+
+Control de:
+
+* Lámpara
+* Ventilador
+
+### Comunicación
+
+* Recepción de comandos UART
+* Envío de información de monitoreo
+
+### Flujo principal
+
+1. Inicialización de periféricos.
+2. Inicio de conversiones ADC.
+3. Transferencia de muestras mediante DMA.
+4. Cálculo de temperatura promedio.
+5. Actualización del DAC.
+6. Envío de datos por UART.
+7. Atención de comandos UART.
+
+---
+
+# ⚡ 3. Especificaciones Eléctricas
+
+## Alimentación
+
+### Tensión de operación
+
+* 5 V para sensores y actuadores.
+* 3.3 V para el LPC1769.
+
+### Método de alimentación
+
+* Alimentación mediante USB para la placa LPC1769.
+* Fuente externa para los actuadores.
+
+### Consumo estimado
+
+* Sistema electrónico: < 150 mA.
+* Sistema completo con ventilador y lámpara: dependiente de la potencia instalada.
+
+---
+
+## Plataforma de Desarrollo
+
+### Microcontrolador
+
+* NXP LPC1769
+* Arquitectura ARM Cortex-M3
+* Frecuencia máxima: 100 MHz
+
+### IDE
+
+* MCUXpresso IDE
+
+### Bibliotecas utilizadas
+
+* CMSIS v2.00 LPC17xx
+* Drivers LPC17xx
+
+### Periféricos avanzados utilizados
+
+* NVIC
+* DMA
+* ADC
+* DAC
+* UART
+* Timers
+
+### Estrategia de concurrencia
+
+El sistema utiliza una arquitectura cooperativa basada en super-loop.
+
+Las tareas principales se ejecutan secuencialmente dentro del ciclo principal mientras que las transferencias ADC y la comunicación UART utilizan interrupciones y DMA para minimizar la carga del procesador.
+
+---
+
+# 🔄 4. Proceso de Integración y Desarrollo
+
+### Etapa 1 – Puesta en marcha
+
+* Configuración del entorno de desarrollo.
+* Validación de GPIOs.
+* Control individual de lámpara y ventilador.
+
+### Etapa 2 – Adquisición de datos
+
+* Configuración del ADC.
+* Lectura de sensores LM335.
+* Conversión de muestras a temperatura.
+
+### Etapa 3 – Optimización
+
+* Implementación de DMA para adquisición automática.
+* Procesamiento de buffers.
+* Obtención de temperatura promedio.
+
+### Etapa 4 – Comunicación
+
+* Implementación de UART.
+* Envío de temperaturas a PC.
+* Recepción de comandos de control.
+
+### Etapa 5 – Integración final
+
+* Integración de sensores, actuadores y comunicaciones.
+* Verificación del funcionamiento conjunto.
+* Ensayos térmicos dentro de la cámara.
+
+---
+
+# 📊 5. Ensayos, Pruebas y Resultados
+
+## Pruebas funcionales realizadas
+
+### Sensores
+
+* Verificación individual de los tres LM335.
+* Comparación de mediciones entre sensores.
+
+### ADC
+
+* Verificación de conversión correcta de tensiones.
+
+### DMA
+
+* Verificación de transferencia automática de muestras.
+
+### UART
+
+* Envío de temperaturas a terminal serie.
+* Recepción de comandos de usuario.
+
+### Actuadores
+
+* Encendido y apagado individual de lámpara y ventilador.
+* Verificación de respuesta a comandos UART.
+
+## Evidencia a incorporar
+
+* Fotografías del prototipo.
+* Capturas de terminal serie.
+* Capturas de osciloscopio.
+* Curvas de temperatura obtenidas durante los ensayos.
+
+---
+
+# 📂 6. Estructura del Repositorio
 
 ```text
-├── firmware/          # Código fuente del proyecto (MPLABX / MCUXpresso / STM32Cube)
-│   ├── src/           # Archivos de código (.c)
-│   └── inc/           # Archivos de cabecera (.h)
-├── hardware/          # Archivos de diseño (KiCad/Altium), esquemáticos en PDF/Imagen y BOM
-├── docs/              # Datasheets clave, imágenes del README, notas de aplicación
-└── README.md          # Este archivo de presentación
+├── firmware/
+│   ├── src/
+│   │   ├── actuators/
+│   │   ├── communication/
+│   │   ├── core/
+│   │   ├── plataform/
+│   │   └── thermal_control/
+│   │
+│   └── inc/
+│
+├── hardware/
+│   ├── esquematicos/
+│   ├── pcb/
+│   └── bom/
+│
+├── docs/
+│   ├── imagenes/
+│   ├── capturas_uart/
+│   ├── osciloscopio/
+│   └── datasheets/
+│
+└── README.md
+```
