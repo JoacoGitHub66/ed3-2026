@@ -96,45 +96,14 @@ Los actuadores pueden accionarse mediante comandos enviados por UART:
 
 ### Diagrama de bloques
 
-```
-        +----------------+
-        |   LM335 #1     |
-        +--------+-------+
-                 |
-        +--------v-------+
-        |   LM335 #2     |
-        +--------+-------+
-                 |
-        +--------v-------+
-        |   LM335 #3     |
-        +--------+-------+
-                 |
-                 v
-          +-------------+
-          | ADC + DMA   |
-          +------+------+ 
-                 |
-                 v
-          +-------------+
-          | LPC1769     |
-          +------+------+ 
-                 |
-        +--------+--------+
-        |                 |
-        v                 v
-     UART              DAC
-        |                 |
-        v                 v
-       PC          Salida Analógica
 
-        |
-        +--------------------+
-                             |
-                 +-----------+-----------+
-                 |                       |
-                 v                       v
-             Lámpara              Ventilador
-```
+<img width="2172" height="724" alt="ChatGPT Image 18 jun 2026, 17_59_26" src="https://github.com/user-attachments/assets/26ad188c-72fa-49cf-82d3-f47b8ce54c8a" />
+
+
+<img width="6593" height="1404" alt="Control Termico Automatico" src="https://github.com/user-attachments/assets/3e2aa226-214c-476c-9694-f913b710d1fa" />
+
+
+<img width="3838" height="1674" alt="Control Termico Automatico(1)" src="https://github.com/user-attachments/assets/e48b9d09-3369-40cf-895f-5a5acd1e0248" /> 
 
 ---
 
@@ -310,6 +279,8 @@ Las tareas principales se ejecutan secuencialmente dentro del ciclo principal mi
 ---
 
 # 📂 6. Estructura del Repositorio
+
+<img width="1608" height="1621" alt="Control Termico Automatico(2)" src="https://github.com/user-attachments/assets/86b6d04a-8c02-498a-8ea3-6df795faf59a" /> 
 
 ```text
 ├── firmware/
