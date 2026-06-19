@@ -5,11 +5,11 @@
 >
 > * Joaquín Almada
 > * Matías Leonel Sacchi
->   **Profesor:** Marcos Javier Blasco
+> * **Profesor:** Marcos Javier Blasco
 
 ---
 
-# 🚀 1. Descripción General del Proyecto
+# 1. Descripción General del Proyecto
 
 El presente proyecto consiste en el desarrollo de un sistema de control térmico automático basado en un microcontrolador LPC1769. El objetivo es monitorear la temperatura de una cámara cerrada mediante tres sensores de temperatura LM335 y actuar sobre distintos elementos de control para mantener la temperatura dentro de un rango establecido.
 
@@ -21,7 +21,7 @@ Los valores medidos por los sensores son enviados periódicamente a una computad
 
 ---
 
-## 🎯 Alcances del Proyecto
+## Alcances del Proyecto
 
 ### El sistema SÍ es capaz de:
 
@@ -46,7 +46,7 @@ Los valores medidos por los sensores son enviados periódicamente a una computad
 
 ---
 
-## ⏩ Posibles Etapas Futuras
+## Posibles Etapas Futuras
 
 Como continuación natural del proyecto se plantean las siguientes mejoras:
 
@@ -61,9 +61,9 @@ Como continuación natural del proyecto se plantean las siguientes mejoras:
 
 ---
 
-# 📐 2. Arquitectura del Sistema
+#  2. Arquitectura del Sistema
 
-## 🔌 Hardware e Interconexión
+##  Hardware e Interconexión
 
 ### Componentes principales
 
@@ -107,7 +107,7 @@ Los actuadores pueden accionarse mediante comandos enviados por UART:
 
 ---
 
-## 💻 Arquitectura de Software
+## Arquitectura de Software
 
 El firmware se encuentra organizado en módulos independientes:
 
@@ -153,12 +153,12 @@ Control de:
 
 ---
 
-# ⚡ 3. Especificaciones Eléctricas
+# 3. Especificaciones Eléctricas
 
 ## Alimentación
 
 ### Tensión de operación
-
+* 12 V para la Lampara y el ventilador
 * 5 V para sensores y actuadores.
 * 3.3 V para el LPC1769.
 
@@ -208,7 +208,7 @@ Las tareas principales se ejecutan secuencialmente dentro del ciclo principal mi
 
 ---
 
-# 🔄 4. Proceso de Integración y Desarrollo
+# 4. Proceso de Integración y Desarrollo
 
 ### Etapa 1 – Puesta en marcha
 
@@ -242,7 +242,7 @@ Las tareas principales se ejecutan secuencialmente dentro del ciclo principal mi
 
 ---
 
-# 📊 5. Ensayos, Pruebas y Resultados
+# 5. Ensayos, Pruebas y Resultados
 
 ## Pruebas funcionales realizadas
 
@@ -278,12 +278,14 @@ Las tareas principales se ejecutan secuencialmente dentro del ciclo principal mi
 
 ---
 
-# 📂 6. Estructura del Repositorio
+# 6. Estructura de codigo
 
 <img width="1608" height="1621" alt="Control Termico Automatico(2)" src="https://github.com/user-attachments/assets/86b6d04a-8c02-498a-8ea3-6df795faf59a" /> 
 
+# 7. Estructura del Repositorio
+
 ```text
-├── firmware/
+├
 │   ├── src/
 │   │   ├── actuators/
 │   │   ├── communication/
@@ -292,17 +294,5 @@ Las tareas principales se ejecutan secuencialmente dentro del ciclo principal mi
 │   │   └── thermal_control/
 │   │
 │   └── inc/
-│
-├── hardware/
-│   ├── esquematicos/
-│   ├── pcb/
-│   └── bom/
-│
-├── docs/
-│   ├── imagenes/
-│   ├── capturas_uart/
-│   ├── osciloscopio/
-│   └── datasheets/
-│
-└── README.md
-```
+  
+└── README.m
