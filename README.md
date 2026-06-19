@@ -277,12 +277,23 @@ Las tareas principales se ejecutan secuencialmente dentro del ciclo principal mi
 * Encendido y apagado individual de lámpara y ventilador.
 * Verificación de respuesta a comandos UART.
 
-## Imagenes
+## Visuales
 
 
 <img width="960" height="1280" alt="WhatsApp Image 2026-06-19 at 17 22 07" src="https://github.com/user-attachments/assets/32b85377-7a41-41e9-be4f-194e8a22bd70" />
 <img width="960" height="1280" alt="WhatsApp Image 2026-06-19 at 17 22 07 (1)" src="https://github.com/user-attachments/assets/e0a66b55-14b4-4f0b-a557-154d5486eeb2" />
 <img width="960" height="1280" alt="WhatsApp Image 2026-06-19 at 17 22 08" src="https://github.com/user-attachments/assets/40ef9e5e-bf3c-4bff-b6e7-d87878d68a68" />
+
+
+https://github.com/user-attachments/assets/0501e131-ca36-45dd-9d00-13b1f336cc30
+
+
+
+https://github.com/user-attachments/assets/ea2e40fa-88ea-4f0e-ad70-55798da87529
+
+
+
+https://github.com/user-attachments/assets/1282ca06-73c7-43c8-a21c-cb79de3c1427
 
 
 
