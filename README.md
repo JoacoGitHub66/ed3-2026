@@ -106,10 +106,18 @@ Los actuadores pueden accionarse mediante comandos enviados por UART:
 <img width="3838" height="1674" alt="Control Termico Automatico(1)" src="https://github.com/user-attachments/assets/e48b9d09-3369-40cf-895f-5a5acd1e0248" /> 
 
 ---
+## Esquema de Conexiones
+
+<img src="https://github.com/user-attachments/files/29152254/tempMati.1.bmp" />
+
 
 ## Arquitectura de Software
 
 El firmware se encuentra organizado en módulos independientes:
+
+
+<img width="1608" height="1621" alt="Control Termico Automatico(2)" src="https://github.com/user-attachments/assets/86b6d04a-8c02-498a-8ea3-6df795faf59a" /> 
+
 
 ### Plataforma
 
@@ -269,20 +277,18 @@ Las tareas principales se ejecutan secuencialmente dentro del ciclo principal mi
 * Encendido y apagado individual de lámpara y ventilador.
 * Verificación de respuesta a comandos UART.
 
-## Evidencia a incorporar
+## Imagenes
 
-* Fotografías del prototipo.
-* Capturas de terminal serie.
-* Capturas de osciloscopio.
-* Curvas de temperatura obtenidas durante los ensayos.
 
----
+<img width="960" height="1280" alt="WhatsApp Image 2026-06-19 at 17 22 07" src="https://github.com/user-attachments/assets/32b85377-7a41-41e9-be4f-194e8a22bd70" />
+<img width="960" height="1280" alt="WhatsApp Image 2026-06-19 at 17 22 07 (1)" src="https://github.com/user-attachments/assets/e0a66b55-14b4-4f0b-a557-154d5486eeb2" />
+<img width="960" height="1280" alt="WhatsApp Image 2026-06-19 at 17 22 08" src="https://github.com/user-attachments/assets/40ef9e5e-bf3c-4bff-b6e7-d87878d68a68" />
 
-# 6. Estructura de codigo
 
-<img width="1608" height="1621" alt="Control Termico Automatico(2)" src="https://github.com/user-attachments/assets/86b6d04a-8c02-498a-8ea3-6df795faf59a" /> 
 
-# 7. Estructura del Repositorio
+--
+
+# 6. Estructura del Repositorio
 
 ```text
 ├
