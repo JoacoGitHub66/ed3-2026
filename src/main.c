@@ -127,7 +127,7 @@ static void uartSendString(const char *str) {
     while (*str != '\0') {
         while (!(UART_GetLineStatus(UART0) & UART_LINESTAT_THRE)) {
 
-        }_adc;
+        };
         UART_SendByte(UART0, (uint8_t)*str);
         str++;
     }
