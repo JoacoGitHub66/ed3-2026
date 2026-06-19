@@ -1,0 +1,4 @@
+../src/thermal_control/thermal_control.c:16:6:separarDatosBuffer	32	static
+../src/thermal_control/thermal_control.c:43:20:getBufferSensor1	4	static
+../src/thermal_control/thermal_control.c:47:20:getBufferSensor2	4	static
+../src/thermal_control/thermal_control.c:50:20:getBufferSensor3	4	static

@@ -1,0 +1,20 @@
+/*
+ * core.h
+ *
+ *  Created on: 3 jun. 2026
+ *      Author: matic
+ */
+
+#include "../thermal_control/thermal_control.h"
+
+#ifndef CORE_CORE_H_
+#define CORE_CORE_H_
+
+
+
+/*
+ *
+ * */
+volatile uint32_t calcularPromedioSensor(volatile uint32_t*);
+
+#endif /* CORE_CORE_H_ */

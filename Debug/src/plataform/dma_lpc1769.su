@@ -1,0 +1,6 @@
+/home/mati/Downloads/Electronica Digital 3/digital3/CMSISv2p00_LPC17xx/inc/core_cm3.h:928:22:NVIC_EnableIRQ	16	static
+../src/plataform/dma_lpc1769.c:18:6:configDma	56	static
+../src/plataform/dma_lpc1769.c:51:6:DMA_IRQHandler	8	static
+../src/plataform/dma_lpc1769.c:65:20:getAdcBuffer	4	static
+../src/plataform/dma_lpc1769.c:70:18:getDmaTermino	4	static
+../src/plataform/dma_lpc1769.c:75:6:resetDma	16	static
